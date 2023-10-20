@@ -17,5 +17,7 @@ export function Post({postListUseCase}: Props) {
     loadPosts();
   }, []);
 
-  return posts.map((post) => <ItemPost post={post} />);
+  return posts.map((post) => (
+    <ItemPost data-testid="post" post={post} />
+  ));
 }
