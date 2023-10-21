@@ -18,6 +18,6 @@ export function Post({postListUseCase}: Props) {
   }, []);
 
   return posts.map((post) => (
-    <ItemPost data-testid="post" post={post} />
+    <ItemPost key={post.id} data-testid="post" post={post} />
   ));
 }

@@ -1,21 +1,14 @@
 import {describe, expect, it} from 'vitest';
 import {render, screen, waitFor} from '@testing-library/react';
 import {Post} from './posts';
-import {IPostList} from '../../../domain/contracts/post.contracts';
-import {postsListMock} from '../../../data/mocks/post-list.mock';
-
-class postListUseCaseInMemory implements IPostList {
-  async list(): Promise<IPostList.Model> {
-    return await Promise.resolve(postsListMock());
-  }
-}
+import {PostListUseCaseInMemory} from '../../../data/useCases/PostListUseCase/in-memory/post-list.usecase.in.memory';
 
 function makeSut() {
-  render(<Post postListUseCase={new postListUseCaseInMemory()} />);
+  render(<Post postListUseCase={new PostListUseCaseInMemory()} />);
 }
 
 describe('Post', () => {
-  it('Should return ItemPost with correct values', async () => {
+  it('Should return Post with corrects length', async () => {
     makeSut();
 
     await waitFor(() =>

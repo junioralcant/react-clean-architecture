@@ -5,7 +5,7 @@ type Props = {
 };
 export function ItemPost({post, ...rest}: Props) {
   return (
-    <div key={post.id} {...rest}>
+    <div {...rest}>
       <h1>{post.title}</h1>
       <p>{post.body}</p>
     </div>
