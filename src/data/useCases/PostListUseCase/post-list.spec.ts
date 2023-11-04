@@ -16,7 +16,7 @@ function makeSut({
   return {sut, axiosHttpClientInMemory};
 }
 
-describe('Post', () => {
+describe('PostListUseCase', () => {
   it('Should return method list with correct method and URL', async () => {
     const axiosHttpClientInMemory = new AxiosHttpClientInMemory();
     axiosHttpClientInMemory.response = {data: postsListAPIMock()};
