@@ -4,7 +4,7 @@ import {
   PostModelAPI,
 } from '../../../domain/models/post.model';
 import {IHttpClient} from '../../../infra/contracts/http-client';
-import {postModelAdapter} from '../adapter/post-model.adapter';
+import {postListAdapter} from '../PostListUseCase/post-list.adapter';
 
 export class PostCreateUseCase implements IPostCreate {
   constructor(
@@ -18,6 +18,6 @@ export class PostCreateUseCase implements IPostCreate {
       body: params,
     });
 
-    return postModelAdapter.toPostModel(data);
+    return postListAdapter.toPostModel(data);
   }
 }

@@ -11,4 +11,4 @@ function toPostModel(postApi: PostModelAPI): PostModel {
   };
 }
 
-export const postModelAdapter = {toPostModel};
+export const postListAdapter = {toPostModel};
