@@ -1,6 +1,6 @@
 import {IPostList} from '../../../domain/contracts/post.contracts';
 import {PostModelAPI} from '../../../domain/models/post.model';
-import {postListAdapter} from './post-list.adapter';
+import {postModelAdapter} from '../adapter/post-model.adapter';
 import {IHttpClient} from '../../../infra/contracts/http-client';
 
 export class PostListUseCase implements IPostList {
@@ -14,6 +14,6 @@ export class PostListUseCase implements IPostList {
       url: 'http://localhost:3333/posts',
     });
 
-    return data.map(postListAdapter.toPostModel);
+    return data.map(postModelAdapter.toPostModel);
   }
 }
