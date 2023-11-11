@@ -1,7 +1,7 @@
 import {describe, expect, it} from 'vitest';
 import {render, screen, waitFor} from '@testing-library/react';
 import {Post} from './posts';
-import {PostListUseCaseInMemory} from '../../../data/useCases/PostListUseCase/in-memory/post-list.usecase.in.memory';
+import {PostListUseCaseInMemory} from '../../../data/useCases/post-list-usecase/in-memory/post-list.usecase.in.memory';
 
 function makeSut() {
   render(<Post postListUseCase={new PostListUseCaseInMemory()} />);

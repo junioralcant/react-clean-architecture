@@ -1,4 +1,4 @@
-import {PostListUseCase} from '../data/useCases/PostListUseCase/post-list.usecase';
+import {PostListUseCase} from '../data/useCases/post-list-usecase/post-list.usecase';
 import {AxiosHttpClient} from '../infra/implementations/axios-http-client/axios-http-client';
 import './App.css';
 import {Post} from './pages/posts/posts';
