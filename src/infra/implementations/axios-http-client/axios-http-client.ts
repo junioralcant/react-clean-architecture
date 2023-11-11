@@ -3,7 +3,11 @@ import {HttpResponse, IHttpClient} from '../../contracts/http-client';
 
 export class AxiosHttpClient implements IHttpClient {
   async request(params: IHttpClient.Params): Promise<HttpResponse> {
-    const {data} = await axios.request<HttpResponse>(params);
+    const {data} = await axios.request<HttpResponse>({
+      method: params.method,
+      url: params.url,
+      data: params.body,
+    });
 
     return {data};
   }

@@ -7,6 +7,7 @@ export type HttpMethod = 'get' | 'put' | 'delete' | 'post';
 export type ParamsHttp = {
   method: HttpMethod;
   url: string;
+  body?: any;
 };
 
 export interface IHttpClient<TData = any> {
