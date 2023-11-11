@@ -14,6 +14,7 @@ export class PostCreateUseCase implements IPostCreate {
     await this.httpClient.request({
       method: 'post',
       url: 'http://localhost:3333/posts',
+      body: params,
     });
   }
 }
