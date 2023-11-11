@@ -30,7 +30,7 @@ describe('PostListUseCase', () => {
     );
   });
 
-  it('Should return method list with correct data', async () => {
+  it('Should return method list with correct data correct', async () => {
     const axiosHttpClientInMemory = new AxiosHttpClientInMemory();
     const postsListAPI = postsListAPIMock();
     axiosHttpClientInMemory.response = {data: postsListAPI};

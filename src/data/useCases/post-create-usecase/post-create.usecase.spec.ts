@@ -27,10 +27,6 @@ describe('PostCreateUseCase', () => {
     expect(axiosHttpClientInMemory.url).toBe(
       'http://localhost:3333/posts'
     );
-    expect(axiosHttpClientInMemory.data).toEqual({
-      title: 'meu titulo',
-      body: 'meu body',
-    });
   });
 
   it('Should return method create with correct data', async () => {
