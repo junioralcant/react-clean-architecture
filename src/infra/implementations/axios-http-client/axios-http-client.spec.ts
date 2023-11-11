@@ -9,18 +9,27 @@ function makeSut() {
 }
 
 describe('AxiosHttpClient', () => {
-  it('Should return method and URL correct', async () => {
+  it('Should return method body and URL correct', async () => {
     const axiosMocked = vi
       .spyOn(axios, 'request')
       .mockResolvedValueOnce({data: []});
 
     const {sut} = makeSut();
 
-    await sut.request({method: 'get', url: 'http://localhost'});
+    await sut.request({
+      method: 'get',
+      url: 'http://localhost',
+      body: {
+        title: 'Esse é o meu titulo',
+      },
+    });
 
     expect(axiosMocked).toHaveBeenCalledWith({
       method: 'get',
       url: 'http://localhost',
+      data: {
+        title: 'Esse é o meu titulo',
+      },
     });
   });
 
