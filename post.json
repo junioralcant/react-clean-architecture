@@ -9,6 +9,11 @@
       "id": 2,
       "title_post": "How to parse or read CSV files in ReactJS",
       "body_post": "In this article, I will teach you how to parse or read CSV files in ReactJS in the simplest way possible. "
+    },
+    {
+      "title_post": "Meu Post",
+      "body_post": "Esse foi meu Post",
+      "id": 3
     }
   ]
 }
