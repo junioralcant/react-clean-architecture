@@ -1,4 +1,4 @@
-import {describe, expect, it} from 'vitest';
+import {describe, expect, it, vi} from 'vitest';
 import {
   render,
   screen,
@@ -22,8 +22,13 @@ class CreatePostUseCaseInMemory implements IPostCreate {
   }
 }
 
-function makeSut() {
-  const createPostUseCaseInMemory = new CreatePostUseCaseInMemory();
+type SutParams = {
+  createPostUseCaseInMemory?: CreatePostUseCaseInMemory;
+};
+
+function makeSut({
+  createPostUseCaseInMemory = new CreatePostUseCaseInMemory(),
+}: SutParams = {}) {
   render(
     <CreatePost createPostUseCase={createPostUseCaseInMemory} />
   );
@@ -77,6 +82,26 @@ describe('CreatePost', () => {
 
     expect(
       screen.getByText('Post criado com sucesso!')
+    ).toBeInTheDocument();
+  });
+
+  it('Should show message error if create post failed', async () => {
+    const createPostUseCaseInMemory = new CreatePostUseCaseInMemory();
+    vi.spyOn(
+      createPostUseCaseInMemory,
+      'create'
+    ).mockRejectedValueOnce(() => Promise.reject(new Error()));
+
+    makeSut({createPostUseCaseInMemory});
+
+    filledFormCreatePost();
+
+    await waitFor(() =>
+      screen.getByText('Error ao criar novo post!')
+    );
+
+    expect(
+      screen.getByText('Error ao criar novo post!')
     ).toBeInTheDocument();
   });
 });
