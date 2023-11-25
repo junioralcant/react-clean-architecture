@@ -8,6 +8,7 @@ type Props = {
 export function CreatePost({createPostUseCase}: Props) {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
+  const [message, setMessage] = useState('');
 
   function handleInputTitle(event: ChangeEvent<HTMLInputElement>) {
     setTitle(event.target.value);
@@ -17,12 +18,14 @@ export function CreatePost({createPostUseCase}: Props) {
     setBody(event.target.value);
   }
 
-  function handleSubmit() {
-    createPostUseCase.create({title, body});
+  async function handleSubmit() {
+    await createPostUseCase.create({title, body});
+    setMessage('Post criado com sucesso!');
   }
 
   return (
     <div>
+      {message && <span>{message}</span>}
       <h1>Criar novo post</h1>
       <input
         type="text"
