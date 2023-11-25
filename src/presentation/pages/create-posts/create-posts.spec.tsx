@@ -28,27 +28,36 @@ function makeSut() {
   };
 }
 
+function filledFormCreatePost() {
+  const inputTitle = screen.getByPlaceholderText(
+    'Titulo'
+  ) as HTMLInputElement;
+
+  const inputBody = screen.getByPlaceholderText(
+    'Corpo'
+  ) as HTMLInputElement;
+
+  fireEvent.change(inputTitle, {
+    target: {value: 'Meu titulo é esse'},
+  });
+
+  fireEvent.change(inputBody, {
+    target: {value: 'Meu corpo é esse'},
+  });
+
+  fireEvent.click(screen.getByText('Adicionar'));
+
+  return {
+    inputTitle,
+    inputBody,
+  };
+}
+
 describe('CreatePost', () => {
   it('Should call PostCreateUseCase.create with correct params', () => {
     const {createPostUseCaseInMemory} = makeSut();
 
-    const inputTitle = screen.getByPlaceholderText(
-      'Titulo'
-    ) as HTMLInputElement;
-
-    const inputBody = screen.getByPlaceholderText(
-      'Corpo'
-    ) as HTMLInputElement;
-
-    fireEvent.change(inputTitle, {
-      target: {value: 'Meu titulo é esse'},
-    });
-
-    fireEvent.change(inputBody, {
-      target: {value: 'Meu corpo é esse'},
-    });
-
-    fireEvent.click(screen.getByText('Adicionar'));
+    const {inputBody, inputTitle} = filledFormCreatePost();
 
     expect(createPostUseCaseInMemory.title).toBe(inputTitle.value);
     expect(createPostUseCaseInMemory.body).toBe(inputBody.value);
