@@ -19,8 +19,12 @@ export function CreatePost({createPostUseCase}: Props) {
   }
 
   async function handleSubmit() {
-    await createPostUseCase.create({title, body});
-    setMessage('Post criado com sucesso!');
+    try {
+      await createPostUseCase.create({title, body});
+      setMessage('Post criado com sucesso!');
+    } catch (error) {
+      setMessage('Error ao criar novo post!');
+    }
   }
 
   return (
