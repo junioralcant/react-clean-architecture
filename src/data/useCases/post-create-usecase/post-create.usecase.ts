@@ -15,7 +15,10 @@ export class PostCreateUseCase implements IPostCreate {
     const {data} = await this.httpClient.request({
       method: 'post',
       url: 'http://localhost:3333/posts',
-      body: params,
+      body: {
+        title_post: params.title,
+        body_post: params.body,
+      },
     });
 
     return postModelAdapter.toPostModel(data);
