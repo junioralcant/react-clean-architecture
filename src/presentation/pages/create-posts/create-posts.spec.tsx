@@ -1,5 +1,10 @@
 import {describe, expect, it} from 'vitest';
-import {render, screen, fireEvent} from '@testing-library/react';
+import {
+  render,
+  screen,
+  fireEvent,
+  waitFor,
+} from '@testing-library/react';
 import {CreatePost} from './create-posts';
 import {IPostCreate} from '../../../domain/contracts/post-create.contracts';
 import {PostModel} from '../../../domain/models/post.model';
@@ -61,5 +66,17 @@ describe('CreatePost', () => {
 
     expect(createPostUseCaseInMemory.title).toBe(inputTitle.value);
     expect(createPostUseCaseInMemory.body).toBe(inputBody.value);
+  });
+
+  it('Should show message success if create post ok', async () => {
+    makeSut();
+
+    filledFormCreatePost();
+
+    await waitFor(() => screen.getByText('Post criado com sucesso!'));
+
+    expect(
+      screen.getByText('Post criado com sucesso!')
+    ).toBeInTheDocument();
   });
 });
