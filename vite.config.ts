@@ -1,5 +1,6 @@
 import {defineConfig} from 'vite';
 import react from '@vitejs/plugin-react';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 import path from 'path';
 
@@ -11,7 +12,7 @@ const SETUP_TESTS_DIR = path.resolve(
 // https://vitejs.dev/config/
 export default defineConfig(() => {
   return {
-    plugins: [react()],
+    plugins: [react(), tsconfigPaths()],
     test: {
       setupFiles: [SETUP_TESTS_DIR],
       environment: 'jsdom',
