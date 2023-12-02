@@ -1,4 +1,4 @@
-import {PostModel} from '../models/post.model';
+import {PostModel} from '@domain/models';
 
 export interface IPostCreate {
   create(params: IPostCreate.Params): Promise<PostModel>;
