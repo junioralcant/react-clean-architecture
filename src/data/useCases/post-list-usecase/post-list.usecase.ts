@@ -1,7 +1,8 @@
-import {IPostList} from '../../../domain/contracts/post.contracts';
-import {PostModelAPI} from '../../../domain/models/post.model';
-import {postModelAdapter} from '../adapter/post-model.adapter';
-import {IHttpClient} from '../../../infra/contracts/http-client';
+import {IPostList} from '@domain/contracts';
+import {PostModelAPI} from '@domain/models';
+import {IHttpClient} from '@infra/contracts';
+
+import {postModelAdapter} from '..';
 
 export class PostListUseCase implements IPostList {
   constructor(

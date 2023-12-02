@@ -1,9 +1,10 @@
 import {describe, expect, it} from 'vitest';
-import {PostListUseCase} from './post-list.usecase';
 
-import {PostModel} from '../../../domain/models/post.model';
-import {AxiosHttpClientInMemory} from '../../../infra/implementations/axios-http-client/in-memory/axios-http-client.in.memory';
-import {postsListAPIMock} from '../../mocks/post-list.mock';
+import {postsListAPIMock} from '@data/mocks';
+import {PostModel} from '@domain/models';
+import {AxiosHttpClientInMemory} from '@infra/implementations';
+
+import {PostListUseCase} from '..';
 
 type SutParam = {
   axiosHttpClientInMemory?: AxiosHttpClientInMemory;
