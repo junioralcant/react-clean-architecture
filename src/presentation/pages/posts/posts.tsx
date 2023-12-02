@@ -1,6 +1,8 @@
 import {useEffect, useState} from 'react';
-import {ItemPost} from './components/item-post';
-import {IPostList} from '../../../domain/contracts/post.contracts';
+
+import {IPostList} from '@domain/contracts';
+
+import {ItemPost} from './components';
 
 type Props = {
   postListUseCase: IPostList;

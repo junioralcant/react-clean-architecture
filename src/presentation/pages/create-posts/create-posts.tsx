@@ -1,5 +1,6 @@
-import {IPostCreate} from '../../../domain/contracts/post-create.contracts';
 import {useState, ChangeEvent} from 'react';
+
+import {IPostCreate} from '@domain/contracts';
 
 type Props = {
   createPostUseCase: IPostCreate;

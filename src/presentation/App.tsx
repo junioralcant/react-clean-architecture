@@ -1,11 +1,8 @@
 import {PostCreateUseCase, PostListUseCase} from '@data/useCases';
+import {AxiosHttpClient} from '@infra/implementations';
 
-import {AxiosHttpClient} from '../infra/implementations/axios-http-client/axios-http-client';
-
+import {CreatePost, Post} from './pages';
 import './App.css';
-
-import {CreatePost} from './pages/create-posts/create-posts';
-import {Post} from './pages/posts/posts';
 
 function App() {
   const postListUseCase = new PostListUseCase(new AxiosHttpClient());

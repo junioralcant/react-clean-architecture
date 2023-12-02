@@ -26,6 +26,7 @@ module.exports = {
     '@typescript-eslint/no-unnecessary-type-assertion': 'off',
     '@eslint@typescript-eslint/no-unsafe-member-access': 'off',
     '@typescript-eslint/no-unsafe-call': 'off',
+    '@typescript-eslint/no-misused-promises': 'off',
     'import/order': [
       'error',
       {
