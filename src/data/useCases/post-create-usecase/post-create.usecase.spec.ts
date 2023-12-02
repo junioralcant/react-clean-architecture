@@ -1,8 +1,9 @@
 import {describe, expect, it} from 'vitest';
 
-import {AxiosHttpClientInMemory} from '../../../infra/implementations/axios-http-client/in-memory/axios-http-client.in.memory';
-import {PostCreateUseCase} from './post-create.usecase';
-import {PostModel} from '../../../domain/models/post.model';
+import {PostModel} from '@domain/models';
+import {AxiosHttpClientInMemory} from '@infra/implementations';
+
+import {PostCreateUseCase} from '..';
 
 type SutParam = {
   axiosHttpClientInMemory?: AxiosHttpClientInMemory;

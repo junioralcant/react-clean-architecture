@@ -1,10 +1,8 @@
-import {IPostCreate} from '../../../domain/contracts/post-create.contracts';
-import {
-  PostModel,
-  PostModelAPI,
-} from '../../../domain/models/post.model';
-import {IHttpClient} from '../../../infra/contracts/http-client';
-import {postModelAdapter} from '../adapter/post-model.adapter';
+import {IPostCreate} from '@domain/contracts';
+import {PostModel, PostModelAPI} from '@domain/models';
+import {IHttpClient} from '@infra/contracts';
+
+import {postModelAdapter} from '..';
 
 export class PostCreateUseCase implements IPostCreate {
   constructor(
