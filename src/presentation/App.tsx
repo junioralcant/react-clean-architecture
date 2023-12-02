@@ -1,7 +1,9 @@
-import {PostCreateUseCase} from '../data/useCases/post-create-usecase/post-create.usecase';
-import {PostListUseCase} from '../data/useCases/post-list-usecase/post-list.usecase';
+import {PostCreateUseCase, PostListUseCase} from '@data/useCases';
+
 import {AxiosHttpClient} from '../infra/implementations/axios-http-client/axios-http-client';
+
 import './App.css';
+
 import {CreatePost} from './pages/create-posts/create-posts';
 import {Post} from './pages/posts/posts';
 
