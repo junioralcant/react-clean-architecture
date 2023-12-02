@@ -1,7 +1,4 @@
-import {
-  PostModel,
-  PostModelAPI,
-} from '../../domain/models/post.model';
+import {PostModel, PostModelAPI} from '@domain/models';
 
 export function postsListMock(): PostModel[] {
   return [
