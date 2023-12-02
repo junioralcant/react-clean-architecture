@@ -14,7 +14,7 @@ module.exports = {
     project: true,
     tsconfigRootDir: __dirname,
   },
-  plugins: ['react-refresh'],
+  plugins: ['react-refresh', 'import'],
   rules: {
     'react-refresh/only-export-components': [
       'warn',
@@ -24,5 +24,42 @@ module.exports = {
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/no-unsafe-assignment': 'off',
     '@typescript-eslint/no-unnecessary-type-assertion': 'off',
+    'import/order': [
+      'error',
+      {
+        groups: [
+          'external',
+          'builtin',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+        ],
+        pathGroups: [
+          {
+            pattern: '{react,.yarn}',
+            group: 'external',
+            position: 'before',
+          },
+          {
+            pattern:
+              '{@data/**,@domain/**,@presentation/**,@hooks/**,@infra/**}',
+            group: 'internal',
+            position: 'before',
+          },
+          {
+            pattern: '@assets/**',
+            group: 'internal',
+            position: 'before',
+          },
+        ],
+        pathGroupsExcludedImportTypes: ['react'],
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+        'newlines-between': 'always',
+      },
+    ],
   },
 };
