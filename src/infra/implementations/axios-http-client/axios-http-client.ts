@@ -1,5 +1,6 @@
 import axios from 'axios';
-import {HttpResponse, IHttpClient} from '../../contracts/http-client';
+
+import {HttpResponse, IHttpClient} from '@infra/contracts';
 
 export class AxiosHttpClient implements IHttpClient {
   async request(params: IHttpClient.Params): Promise<HttpResponse> {

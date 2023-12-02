@@ -2,7 +2,7 @@ import {
   HttpResponse,
   IHttpClient,
   ParamsHttp,
-} from '../../../contracts/http-client';
+} from '@infra/contracts';
 
 export class AxiosHttpClientInMemory implements IHttpClient {
   method?: string;
